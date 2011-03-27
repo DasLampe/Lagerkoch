@@ -1,0 +1,12 @@
+#AddType application/x-httpd-php5 .php
+
+RewriteEngine On
+#RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} .css$ [OR]
+RewriteCond %{REQUEST_FILENAME} .js$
+RewriteRule (^.*)$ public/index.php?get=resource/$1 [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+#Standart Regel
+RewriteRule (^.*)$ public/index.php?get=$1 [NC,L]
