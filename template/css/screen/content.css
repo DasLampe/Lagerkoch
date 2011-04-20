@@ -1,0 +1,42 @@
+@CHARSET "UTF-8";
+#dishes
+{
+	float: left;
+	width: 350px;
+}
+
+#dishes ul
+{
+	list-style-type: none;
+	width: 300px;
+	margin-right: 25px;
+}
+
+
+#dishes li, #purchase li
+{
+	display: block;
+	width: 300px;
+	border: 1px solid #138900;
+	background-color: #7AE969;
+	padding-left: 5px;
+	margin: 5px;
+}
+
+#purchase li:hover, #dishes li:hover
+{
+	background-color: #52E93A;	
+}
+
+#purchase
+{
+	float: right;
+	width: 350px;
+}
+
+#purchase, #dishes
+{
+	border: 1px solid #138900;
+	-moz-border-radius: 10px;
+	background-color: #99E48D;
+}	

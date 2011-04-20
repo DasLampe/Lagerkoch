@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+@media screen, projection
+{
+	.yform
+	{
+		background: transparent;
+		border: 0;
+	}
+	
+	.yform fieldset
+	{
+		border: 1px solid #138900;
+		-moz-border-radius: 10px;
+		background-color: #E0E0E0;
+	}
+	
+	.yform legend {
+		color:#1DD300;
+	}
+}

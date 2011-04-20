@@ -1,0 +1,96 @@
+@CHARSET "UTF-8";
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS framework
+ * (en) stylesheet for screen layout
+ * (de) Stylesheet für das Bildschirm-Layout
+ *
+ * @creator       YAML Builder V1.2.1 (http://builder.yaml.de)
+ * @file          basemod.css
+ * @-yaml-minver  3.3
+ */
+
+@media screen, projection
+{
+  /** 
+   * (en) Forcing vertical scrollbars in IE8, Firefox, Webkit & Opera 
+   * (de) Erzwingen vertikaler Scrollbalken in IE8, Firefox, Webkit & Opera 
+   *
+   * @workaround
+   * @affected IE8, FF, Webkit, Opera
+   * @css-for all
+   * @valid CSS3
+   */
+
+  body { overflow-y: scroll; }
+
+  /*-------------------------------------------------------------------------*/
+
+  /* (en) Marginal areas & page background */
+  /* (de) Randbereiche & Seitenhintergrund */
+  body { background: #E0E0E0 none; padding:0; }
+
+  /* Layout Alignment | Layout-Ausrichtung */
+  .page_margins { margin: 0 auto; height: 100%; }
+
+  /* Layout Properties | Layout-Eigenschaften */
+  .page_margins { background: #FFFFFF;min-width: 740px; max-width: 900px; }
+  .page { width: auto;  min-width: 740px; max-width: 900px; margin: auto; background-color: #FFFFFF; }
+  #header { width: auto;  min-width: 740px; max-width: 830px; margin: auto; padding: 45px 50px 1em 20px; color: #266D1B; background:#52E93A; }
+  #header_margin { background-color: #99E48D; width: 100%; }
+  #nav { overflow:hidden; }
+  div.hlist { background-color: #E0E0E0; }
+  #main { margin: 10px 0;}
+  #footer {min-width: 740px; max-width: 900px; margin: auto; height: 20px; padding: 10px 20px; color:#1DD300; background: #138900; border-top: 1px #7AE969 solid;}
+  
+  .page_margins, #header {
+   	border-right: 1px solid #389E28;
+   	border-left: 1px solid #389E28;
+  }
+  
+  #col1
+  {
+  	width: 100%;
+  }
+  
+
+  /*-------------------------------------------------------------------------*/
+
+  /**
+   * (en) Formatting content container
+   * (de) Formatierung der Inhalts-Container
+   *
+   */
+
+  #main { padding: 0px 20px }
+  #main h1 {
+  	color: #7AE969;
+  }
+  
+  #header h1
+  {
+    padding: 0 0 3px 10px;
+  	border-bottom: 5px solid #138900 ;
+  	border-left: 2px solid #138900;
+  	-moz-border-radius-bottomleft: 20px;
+  }
+  
+  #col1 table
+  {
+  	border-spacing: 0px;
+  }
+  
+  #col1 td
+  {
+	background-color: #99E48D;
+	padding: 0 5px 0 0;
+  }
+  
+  /*---------------------------------------------------------------------*/
+  .add:before
+  {
+  	content: url("%LINK_TPL%images/add.png")" ";
+  }
+	
+  /*-------------------------------------------------------------------------*/
+  #header, #nav, #main, #footer {clear:both;}
+}

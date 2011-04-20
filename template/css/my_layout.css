@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS framework
+ * (en) central stylesheet
+ * (de) zentrales Stylesheet
+ *
+ * @creator       YAML Builder V1.2.1 (http://builder.yaml.de)
+ * @file          my_layout.css
+ * @-yaml-minver  3.3
+ * 
+ */
+
+/* import core styles | Basis-Stylesheets einbinden */
+@import url(%LINK_LIB%yaml/core/base.css);
+
+/* import screen layout | Screen-Layout einbinden */
+@import url(%LINK_CSS%navigation/nav_shinybuttons.css);
+@import url(%LINK_CSS%screen/basemod.css);
+@import url(%LINK_CSS%screen/basemod_fullheight.css);
+@import url(%LINK_LIB%yaml/screen/content_default.css);
+@import url(%LINK_CSS%screen/content.css);
+@import url(%LINK_LIB%yaml/screen/forms.css);
+@import url(%LINK_CSS%screen/forms.css);
+@import url(%LINK_CSS%patch_my_layout.css);
+
+/* import print layout | Druck-Layout einbinden */
+@import url(%LINK_LIB%yaml/print/print_draft.css);

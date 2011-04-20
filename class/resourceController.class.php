@@ -1,51 +1,51 @@
 <?php
 // +----------------------------------------------------------------------+
-// | Copyright (c) 2010 DasLampe <andre@lano-crew.org> |
+// | Copyright (c) 2011 DasLampe <andre@lano-crew.org> |
 // | Encoding:  UTF-8 |
 // +----------------------------------------------------------------------+
 class resourceController
 {
-	public function __construct($file)
+	public function __construct($request)
 	{
-		//$file	= explode("/", $file);
-		$file	= str_replace("-", "/", $file);
-		$type	= $this->getHeaderType($file);
+		$request	= helper::deleteDirName($request);
+		$type		= $this->getHeaderType($request);
 		
-		if(file_exists(PATH_MAIN.$file))
+		if(file_exists(PATH_MAIN.$request))
 		{
 			if($type =="application/x-httpd-php")
 			{
-			 	include(PATH_MAIN.$file);
+			 	include(PATH_MAIN.$request);
 			}
 			else
 			{
-				global $param;
-				if(isset($_SERVER['HTTP_REFERER']))
-				{
-					$referer	= $_SERVER['HTTP_REFERER'];
-				}
-				else
-				{
-					$referer	= LINK_MAIN;
-				}
-				
-				 header("Content-Type: ".$type);
-				//readfile(PATH_MAIN.$file); ---> Old Way
-				 $content		= file_get_contents(PATH_MAIN.$file);		
-				 
-				echo $content;
+				header("Content-Type: ".$type);
+				$content	= file_get_contents(PATH_MAIN.$request);
+				$search		= array(
+									"%LINK_MAIN%",
+				 					"%LINK_CSS%",
+									"%LINK_LIB%",
+									"%LINK_TPL%"
+				 					);
+				$replace	= array(
+				 					LINK_MAIN,
+				 					LINK_CSS,
+				 					LINK_LIB,
+				 					LINK_TPL,
+				 					);
+				$content	= str_replace($search, $replace, $content);
+
+ 				echo $content;
 			}
 		}
 		else
 		{
-			echo 'Datei ('.$file.') existiert nicht!';
+			echo 'Datei ('.$request.') existiert nicht!';
 		}
 	}
 	
 	private function getHeaderType($file)
 	{
 		$type	= explode(".", $file);
-				
 		switch($type[1])
 		{
 			 case "css":

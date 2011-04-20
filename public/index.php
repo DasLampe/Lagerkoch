@@ -1,24 +1,25 @@
 <?php
-include_once("../config/path.conf.php");
+include_once("../config/config.php");
 include_once(PATH_CLASS."helper.class.php");
-include_once(PATH_CLASS."template.class.php");
+include_once(PATH_CLASS."db.class.php");
+include_once(PATH_CLASS."basePage.class.php");
+include_once(PATH_CLASS."pageController.class.php");
 include_once(PATH_CLASS."resourceController.class.php");
 
-$file	= helper::getFilepath($_SERVER['REQUEST_URI']);
-$tpl	= template::getInstance();
-
-if(file_exists(PATH_MAIN."model/".$file) === true && helper::specialFile($file) === false)
+$pageController	= new pageController();
+if($pageController->isSite($_SERVER['REQUEST_URI']) === true)
 {
-	include_once(PATH_MAIN."model/".$file);
+	$pageController->renderPage($_SERVER['REQUEST_URI']);
 }
-elseif(file_exists(PATH_MAIN.$file) === true && helper::specialFile($file) === true)
+elseif($pageController->isSpecialFile($_SERVER['REQUEST_URI']))
 {
-	new resourceController($file);
-	exit();
+	$resourceController	= new resourceController($_SERVER['REQUEST_URI']);	
+}
+elseif($pageController->isSite($_SERVER['REQUEST_URI']) === false)
+{
+	echo "404";
 }
 else
 {
-	$tpl->vars("content",	"Datei nicht vorhanden!");
+	header("Location: main");
 }
-
-$tpl->load("layout", 1);

@@ -9,8 +9,13 @@ define("DIR_MAIN",		$dirname);
 define("PATH_MAIN",		$pathMain[0]);
 define("PATH_CLASS",	PATH_MAIN."class/");
 define("PATH_TPL",		PATH_MAIN."template/");
+define("PATH_MODEL",	PATH_MAIN."model/");
+define("PATH_LIB",		PATH_MAIN."lib/");
+define("PATH_VIEW",		PATH_MAIN."view/");
 
 //Links
 define("LINK_MAIN",		"http://".$_SERVER['HTTP_HOST'].DIR_MAIN);
-define("LINK_CSS",		LINK_MAIN."css/");
-define("LINK_JS",		LINK_MAIN."js/");
+define("LINK_LIB",		LINK_MAIN."lib/");
+define("LINK_TPL",		LINK_MAIN."template/");
+define("LINK_CSS",		LINK_TPL."css/");
+define("LINK_JS",		LINK_TPL."js/");
